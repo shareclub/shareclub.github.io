@@ -1,0 +1,375 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Hexo">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content="CSDN迁移">
+
+
+<meta name="description" content="   版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。  本文链接：https://blog.csdn.net/qq_39110538/a...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    ECMAScript6入门 |
+    
+    Hexo
+</title>
+
+<link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+</head></html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='John Doe'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        Hexo</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/前端/"><i class="fa "></i>
+                                前端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/后端/"><i class="fa "></i>
+                                后端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/工具/"><i class="fa "></i>
+                                工具</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="ECMAScript6入门">
+            
+            ECMAScript6入门
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/CSDN迁移/">CSDN迁移</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2018/11/16</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p> <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener"> </a> 版权声明：本文为博主原创文章，遵循<a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener"> CC 4.0 BY-SA </a>版权协议，转载请附上原文出处链接和本声明。  本文链接：<a href="https://blog.csdn.net/qq_39110538/article/details/84037467" target="_blank" rel="noopener">https://blog.csdn.net/qq_39110538/article/details/84037467</a>   </p>
+<h1 id="ECMAScript6入门"><a href="#ECMAScript6入门" class="headerlink" title="ECMAScript6入门"></a>ECMAScript6入门</h1><p> 首先了解一下ECMAScript6的来源：</p>
+<h3 id="js的组成部分有哪些？"><a href="#js的组成部分有哪些？" class="headerlink" title="js的组成部分有哪些？"></a>js的组成部分有哪些？</h3><p> ECMA DOM BOM</p>
+<h3 id="什么是ECMA"><a href="#什么是ECMA" class="headerlink" title="什么是ECMA?"></a>什么是ECMA?</h3><p> ECMA是一种标准，js则是实现者</p>
+<h3 id="什么是ECMAScript"><a href="#什么是ECMAScript" class="headerlink" title="什么是ECMAScript?"></a>什么是ECMAScript?</h3><p> 简写ECMA或者ES</p>
+<h3 id="目前版本："><a href="#目前版本：" class="headerlink" title="目前版本："></a>目前版本：</h3><p> 低级浏览器：支持ES3.1</p>
+<p> 高级浏览器：ES5过渡到ES6</p>
+<h3 id="ECMA的历史："><a href="#ECMA的历史：" class="headerlink" title="ECMA的历史："></a>ECMA的历史：</h3><p> 1996年 ES1.0 js稳定 Netscape将js提交给ECMA组织，ES正式出现</p>
+<p> 1998年 ES2.0 正式发布 </p>
+<p> 1999年 ES3.0 被浏览器广泛支持</p>
+<p> 2007年 ES4.0 过于激进，被废除了</p>
+<p> 2008年 ES3.1 4.0退化成3.1， 代号 Harmony(和谐)</p>
+<p> 2009年 ES5.0 ES5正式发布，同时公布JavaScript.next 也就是后来的6.0</p>
+<p> 2011年 ES5.1 成为了ISO国际标准</p>
+<p> 2013年.3月 ES6.0 颁布草案</p>
+<p> 2013年12月 ES6.0 发布草案</p>
+<p> 2015年 ES6.0 预计发布正式版，同时JavaScript.next指向ES7.0</p>
+<p> 2018年 ES6.0 ES6比ES5的生成力更强，代码更整洁</p>
+<h3 id="兼容性："><a href="#兼容性：" class="headerlink" title="兼容性："></a>兼容性：</h3><p> 目前为止 ES5 ES6支持情况基本凑合</p>
+<p> node.js 用的是chrome内核，在node中可以使用ES5 ES6很多特性</p>
+<p> ES5和ES6已经逐渐沦为后台语言</p>
+<h3 id="在浏览器如何使用？"><a href="#在浏览器如何使用？" class="headerlink" title="在浏览器如何使用？"></a>在浏览器如何使用？</h3><p> 需要用到编译工具：</p>
+<p> babel —— 让我们在当前的项目中随意的使用这些新最新的es6，甚至es7的语法</p>
+<p> traceur —— 由Google出的编译器，把ES6语法编译为ES5</p>
+<p> gulp</p>
+<p> webpack</p>
+<p> npm</p>
+<p> bootstrap 引导程序，跟css认识的bootstrap不一样</p>
+<p> 在网页上使用：</p>
+<p> 方法一：直接在<script></script>中使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> &lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        let a = 12;</span><br><span class="line">        alert(a);</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p> 注意：如果浏览器无法编译，则需要在<a href="https://github.com/aikar/traceur/tree/master/traceur/src" target="_blank" rel="noopener">https://github.com/aikar/traceur/tree/master/traceur/src</a>下载traceur.js 和 bootstrap.js两个文件，然后引入到HTML文件中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> &lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">    &lt;!--插入一下代码引用两个js--&gt;</span><br><span class="line">    &lt;script src=&quot;traceur.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;bootstrap.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script type=&quot;module&quot;&gt;</span><br><span class="line">        let a = 12;</span><br><span class="line">        alert(a);</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p> 方法二：在线直接使用——主要用于测试</p>
+<p> <a href="https://google.github.io/traceur-compiler/demo/repl.html#" target="_blank" rel="noopener">https://google.github.io/traceur-compiler/demo/repl.html</a></p>
+<p> <a href="https://babeljs.io/repl/#?babili=false&amp;browsers=&amp;build=&amp;builtIns=false&amp;spec=false&amp;loose=false&amp;code_lz=DYUwLgBAhhC8EEYBMBuIA&amp;debug=false&amp;forceAllTransforms=false&amp;shippedProposals=false&amp;circleciRepo=&amp;evaluate=false&amp;fileSize=false&amp;timeTravel=false&amp;sourceType=module&amp;lineWrap=true&amp;presets=es2015%2Creact%2Cstage-2&amp;prettier=false&amp;targets=&amp;version=6.26.0&amp;envVersion=" target="_blank" rel="noopener">https://babeljs.io/repl/</a></p>
+<p> 方法三：直接在node里面使用</p>
+<p> a)但直接用时，需要添加‘use strict’</p>
+<p> b)node –harmony_descructuring xxx.js</p>
+<p> 实例：在webstrom创建一个test.js文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> &apos;use strict&apos;;</span><br><span class="line">let a = 12;</span><br><span class="line">console.log(a);</span><br></pre></td></tr></table></figure>
+
+<p> ALT+f12快捷键打开webstrom的终端Terminal 输入node test.js 则可执行</p>
+<p> <img src="https://img-blog.csdnimg.cn/20181114012858647.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5MTEwNTM4,size_16,color_FFFFFF,t_70" alt></p>
+<h2 id="新增功能"><a href="#新增功能" class="headerlink" title="新增功能"></a>新增功能</h2><h3 id="1、let——定义变量"><a href="#1、let——定义变量" class="headerlink" title="1、let——定义变量"></a>1、let——定义变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let a = 12;</span><br></pre></td></tr></table></figure>
+
+<p> 特点：</p>
+<p> 1）let具有块级作用域：只能在{}包起来的代码块中使用，是有局部作用域的，而用var定义的变量无论在什么地方都是全局变量的。</p>
+<p> 2）let不允许重复声明变量，而var声明的两个相同名的变量是不会报错的，后者会覆盖前者</p>
+<p> 总结：其实let才是接近其他语言的变量</p>
+<p> 用处：1）封闭空间变得更简洁</p>
+<p> 实例1：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> &lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        //ES5的写法</span><br><span class="line">        (function()&#123;</span><br><span class="line">            var a = 12;</span><br><span class="line">            alert(a);</span><br><span class="line">        &#125;)();</span><br><span class="line"></span><br><span class="line">        //ES6的写法</span><br><span class="line">        &#123;</span><br><span class="line">            let a = 12;</span><br><span class="line">            alert(a);</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p> 实例2：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"> &lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        window.οnlοad=function()&#123;</span><br><span class="line">            var aBtn = document.getElementsByTagName(&quot;input&quot;);</span><br><span class="line">            //ES5封闭函数</span><br><span class="line">            // for(var i=0; i&lt;aBtn.length; i++)&#123;</span><br><span class="line">            //     (function(i)&#123;</span><br><span class="line">            //         aBtn[i].onclick = function()&#123;</span><br><span class="line">            //             alert(i);</span><br><span class="line">            //         &#125;</span><br><span class="line">            //     &#125;)(i);</span><br><span class="line">            //     &#125;</span><br><span class="line">            // &#125;;</span><br><span class="line">            //ES6封闭函数</span><br><span class="line">            for(let i=0; i&lt;aBtn.length; i++)&#123;</span><br><span class="line">                    aBtn[i].onclick = function()&#123;</span><br><span class="line">                        alert(i);</span><br><span class="line">                    &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;input type=&quot;button&quot; value=&quot;aaa&quot;&gt;</span><br><span class="line">&lt;input type=&quot;button&quot; value=&quot;bbb&quot;&gt;</span><br><span class="line">&lt;input type=&quot;button&quot; value=&quot;ccc&quot;&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p> 总结：块级作用域，其实就是匿名函数立即调用</p>
+<h3 id="const——定义常量，一旦赋值，就不能被修改"><a href="#const——定义常量，一旦赋值，就不能被修改" class="headerlink" title="const——定义常量，一旦赋值，就不能被修改"></a>const——定义常量，一旦赋值，就不能被修改</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> const a = &quot;shareclub&quot;;</span><br><span class="line">a = 12; //报错</span><br></pre></td></tr></table></figure>
+
+<p> 注意：const必须给初始值，因为以后再也没法赋值了，所以声明的时候一定要有值，还不能重复声明。</p>
+<p> 用途：为了防止意外修改变量，比如引入库名，组件名。</p>
+<p>## </p>
+<h3 id="字符串链接"><a href="#字符串链接" class="headerlink" title="${}字符串链接"></a>${}字符串链接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> //ES5</span><br><span class="line">&apos;abc&apos;+变量名+&apos;ef&apos;</span><br><span class="line">//ES6</span><br><span class="line">`abc$&#123;变量名&#125;ef`  //反双引号，1键前面的按键</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h3 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> var [a,b,c] = [12,5,101]; //a=12 b=5 c=101</span><br><span class="line"></span><br><span class="line">var &#123;a,b,c&#125; = &#123;b:5,a:12,c:101&#125; //结合json使用，无论赋值顺序如何，a都等于12</span><br></pre></td></tr></table></figure>
+
+<p> 模式匹配：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> var [a,[b,c],d] = [12,[1,2],4];  //左边与右边模式一样</span><br><span class="line"></span><br><span class="line">var [&#123;a,e&#125;,[b,c],d] = [&#123;e:&apos;eeee&apos;,a:&apos;aaa&apos;&#125;,[1,2],4];  //与json结合</span><br></pre></td></tr></table></figure>
+
+<p> 用途——交互：数据解析</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> var arr = [&#123;title:&apos;abc&apos;, href:&apos;kkk&apos;, img:&apos;img1&apos;&#125;];</span><br><span class="line"></span><br><span class="line">var [&#123;title,href,img&#125;]=arr;</span><br><span class="line"></span><br><span class="line">console.log(title,href,img);  //输出结果abc kkk img1</span><br></pre></td></tr></table></figure>
+
+<p> 解构赋值给默认值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var &#123;time=12, id=0&#125;=&#123;&#125;; //time默认为12， id默认为0</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2018/11/28/ROS 入门 （1）/" class="pre-post btn btn-default" title='ROS 入门 （1）'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            ROS 入门 （1）</span>
+    </a>
+    
+    
+    <a href="/2018/11/13/Javascript代码规范/" class="next-post btn btn-default" title='Javascript代码规范'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            Javascript代码规范</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ECMAScript6入门"><span class="toc-text">ECMAScript6入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#js的组成部分有哪些？"><span class="toc-text">js的组成部分有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是ECMA"><span class="toc-text">什么是ECMA?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是ECMAScript"><span class="toc-text">什么是ECMAScript?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目前版本："><span class="toc-text">目前版本：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ECMA的历史："><span class="toc-text">ECMA的历史：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#兼容性："><span class="toc-text">兼容性：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在浏览器如何使用？"><span class="toc-text">在浏览器如何使用？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新增功能"><span class="toc-text">新增功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、let——定义变量"><span class="toc-text">1、let——定义变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#const——定义常量，一旦赋值，就不能被修改"><span class="toc-text">const——定义常量，一旦赋值，就不能被修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串链接"><span class="toc-text">${}字符串链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解构赋值"><span class="toc-text">解构赋值</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+</body>
+</html>

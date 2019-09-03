@@ -1,0 +1,377 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Hexo">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content="CSDN迁移">
+
+
+<meta name="description" content="   版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。  本文链接：https://blog.csdn.net/qq_39110538/a...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    Win10装双系统Ubuntu16.04+EasyBCD |
+    
+    Hexo
+</title>
+
+<link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+</head></html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='John Doe'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        Hexo</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/前端/"><i class="fa "></i>
+                                前端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/后端/"><i class="fa "></i>
+                                后端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/工具/"><i class="fa "></i>
+                                工具</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Win10装双系统Ubuntu16.04+EasyBCD">
+            
+            Win10装双系统Ubuntu16.04+EasyBCD
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/CSDN迁移/">CSDN迁移</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2018/11/30</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p> <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener"> </a> 版权声明：本文为博主原创文章，遵循<a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener"> CC 4.0 BY-SA </a>版权协议，转载请附上原文出处链接和本声明。  本文链接：<a href="https://blog.csdn.net/qq_39110538/article/details/84576199" target="_blank" rel="noopener">https://blog.csdn.net/qq_39110538/article/details/84576199</a>   </p>
+<p>   最近需要搞一个机器人项目，使用的是ROS机器系统，而这个系统需要安装在linux系统上，所以就要安装个linux系统。思考了一下，用虚拟机虽然简单方便，但速度太慢，而且不稳定，然后就想装个双系统吧。</p>
+<p> 参考自：<a href="https://blog.csdn.net/yucicheung/article/details/72844727" target="_blank" rel="noopener">https://blog.csdn.net/yucicheung/article/details/72844727</a></p>
+<p> 工具：</p>
+<p> 1.<a href="http://releases.ubuntu.com/16.04/?_ga=2.58913454.2037263812.1543234661-194306974.1543234661" target="_blank" rel="noopener">Ubuntu 16.04.5 LTS (Xenial Xerus)</a></p>
+<p> 2.<a href="http://sqdownb.onlinedown.net/down/EasyBCD2.3.zip" target="_blank" rel="noopener">EasyBCD </a></p>
+<p> 3.<a href="https://www.disktool.cn/" target="_blank" rel="noopener">分区助手</a></p>
+<p> 教程：</p>
+<p> <a href="#1.windows%E7%A1%AC%E7%9B%98%E5%88%86%E5%8C%BA">1.windows硬盘分区</a></p>
+<p> <a href="#%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0"> </a></p>
+<p> <a href="#2.EasyBCD%E8%AE%BE%E7%BD%AENeoGrub%E5%BC%95%E5%AF%BC">2.EasyBCD设置NeoGrub引导</a></p>
+<p> <a href="#%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0"> </a></p>
+<p> <a href="#3.Ubuntu16.04%E5%AE%89%E8%A3%85">3.Ubuntu16.04安装</a></p>
+<p> <a href="#%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0"> </a></p>
+<p> <a href="#4.%E5%88%A9%E7%94%A8EasyEasyBCD%E5%BC%95%E5%AF%BCUbuntu%E5%90%AF%E5%8A%A8">4.利用EasyEasyBCD引导Ubuntu启动</a></p>
+<p> <a href="#%C2%A0%20%C2%A0%C2%A0"> </a></p>
+<hr>
+<h2 id="1-windows硬盘分区"><a href="#1-windows硬盘分区" class="headerlink" title="1.windows硬盘分区"></a>1.windows硬盘分区</h2><p> 分区就是为了给Ubuntu系统一个空闲的空间，所以需要压缩卷腾出一个大约是50G-100G的空间，至于多少，由你自己的硬盘大小而定，我就设置了100G的（注意：压缩卷后显示未分配即可，不需新建简单卷），我这里使用的是分区助手，也可以右击电脑标志，选择管理-&gt;磁盘管理，然后分区</p>
+<p> <img src="https://img-blog.csdnimg.cn/20181130220138753.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5MTEwNTM4,size_16,color_FFFFFF,t_70" alt></p>
+<h2 id="2-EasyBCD设置NeoGrub引导"><a href="#2-EasyBCD设置NeoGrub引导" class="headerlink" title="2.EasyBCD设置NeoGrub引导"></a>2.EasyBCD设置NeoGrub引导</h2><p> 下载好EasyBCD后，直接解压安装打开即可，个人使用是免费的。选择添加新条目，右边选择NeoGrub,点击“安装”</p>
+<p> <img src="https://img-blog.csdn.net/20170605145427384?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVjaWNoZXVuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="安装NeoGrub选项"></p>
+<p> 安装完成后，会在C盘目录下创建一个名为“NeoGrub”的文件。</p>
+<p> 点击配置，然后把下面文本复制到NeoGrub文件中的后面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> title Install Ubuntu</span><br><span class="line">root (hd0,0)</span><br><span class="line">kernel (hd0,0)/vmlinuz.efi boot=casper iso-scan/filename=/ubuntu-16.04.1-desktop-amd64.iso ro quiet splash locale=zh_CN.UTF-8</span><br><span class="line">initrd (hd0,0)/initrd.lz</span><br></pre></td></tr></table></figure>
+
+<p> （hd0,0） 这里代表的是C盘的位置，hd0表示磁盘的序号，后面的0代表该磁盘上由左往右（从0开始）C盘分区所在的位置。</p>
+<p> filename=/后面跟你下载的iso文件名，我的是 ubuntu-16.04.1-desktop-amd64.iso </p>
+<p> 配置好后，保存退出即可</p>
+<p> 将一开始下载的Ubuntu镜像文件复制到c盘根目录下，然后打开镜像文件，把casper文件夹打开，然后将其中的文件“initrd.lz” 和 “vmlinuz.efi” 拷贝到c盘根目录下</p>
+<p> <img src="https://img-blog.csdnimg.cn/20181130232918411.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5MTEwNTM4,size_16,color_FFFFFF,t_70" alt></p>
+<p> 最后c盘目录下多出来的文件如下，这样做就是从c盘引导安装</p>
+<p> <img src="https://img-blog.csdnimg.cn/2018113023293072.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5MTEwNTM4,size_16,color_FFFFFF,t_70" alt></p>
+<p> 准备工作都做好后，接下来就可以重启电脑进行Ubuntu安装了</p>
+<p>## </p>
+<h2 id="3-Ubuntu16-04安装"><a href="#3-Ubuntu16-04安装" class="headerlink" title="3.Ubuntu16.04安装"></a>3.Ubuntu16.04安装</h2><p> 重启后，需要点时间，然后就会出现“NeoGrub引导加载器”</p>
+<p> <img src="https://img-blog.csdn.net/20170604235404410?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVjaWNoZXVuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="开机引导出现NeoGRub选项"></p>
+<p> 点击后，可以看见“Install Ubuntu”</p>
+<p> <img src="https://img-blog.csdn.net/20170604235839687?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVjaWNoZXVuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="Install Ubuntu 选项"></p>
+<p> 点击后，进入Ubuntu桌面，左上角有个“安装Ubuntu16.04LTS”程序</p>
+<p> <img src="https://img-blog.csdn.net/20170605003052840?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVjaWNoZXVuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="安装Ubuntu图标"></p>
+<p> 点击图标后，进行语言选择，到最后选择“中文（简体）”</p>
+<p> <img src="https://img-blog.csdn.net/20170605003328093?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVjaWNoZXVuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="语言设置"></p>
+<p> 下一步，勾选第二项，可以省去很多配置步骤</p>
+<p> <img src="https://img-blog.csdn.net/20170605003328093?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVjaWNoZXVuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="语言设置"></p>
+<p> 下一步，“安装类型”，选择“其他选项”，自己来分配硬盘分区 <img src="https://img-blog.csdn.net/20170605222609958?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVjaWNoZXVuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="安装类型"></p>
+<h3 id="分区过程（非常非常非常重要）-选择之前分出来的空闲的空间，点击左下角“-”号，按下面的方案进行分区（当然分区方式有很多种，之前我就尝试了其他的安装教程，他们的分区方式就跟这个不一样，不过按下面的方案就可以了）"><a href="#分区过程（非常非常非常重要）-选择之前分出来的空闲的空间，点击左下角“-”号，按下面的方案进行分区（当然分区方式有很多种，之前我就尝试了其他的安装教程，他们的分区方式就跟这个不一样，不过按下面的方案就可以了）" class="headerlink" title="分区过程（非常非常非常重要） 选择之前分出来的空闲的空间，点击左下角“+”号，按下面的方案进行分区（当然分区方式有很多种，之前我就尝试了其他的安装教程，他们的分区方式就跟这个不一样，不过按下面的方案就可以了）"></a>分区过程（非常非常非常重要） 选择之前分出来的空闲的空间，点击左下角“+”号，按下面的方案进行分区（当然分区方式有很多种，之前我就尝试了其他的安装教程，他们的分区方式就跟这个不一样，不过按下面的方案就可以了）</h3><p> <img src="https://img-blog.csdnimg.cn/20181130222804597.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5MTEwNTM4,size_16,color_FFFFFF,t_70" alt></p>
+<p> 注意：按参考资料分区会有个错误，就是分了主分区后，空闲空间就变得不可用了，上网百度有的人认为先“主分区“后”逻辑分区“，但我这样做的话确实是出错的，不过先”逻辑分区“后”主分区“却是可以的，所以如果你的电脑也出错了可以使用后者方案。</p>
+<p> /home 可以用剩余的空间减去 / 分区的空间得到，当然分区大小只是估算的，不用那么准确的，大概就可以了。</p>
+<pre><code>挂载点   | 分区大小   | 新分区类型 | 新分区位置  | 用于        
+----- | ------ | ----- | ------ | ---------- 
+不设置   | 2048M  | 逻辑分区  | 空间起始位置 | 交换空间      
+/boot | 800M   | 逻辑分区  | 空间起始位置 | EXT4日志文件系统
+/home | 剩余所有   | 逻辑分区  | 空间起始位置 | EXT4日志文件系统
+/     | 22000M | 逻辑分区  | 空间起始位置 | EXT4日志文件系统</code></pre><p>## </p>
+<p>## </p>
+<p>## </p>
+<p>## </p>
+<p>## </p>
+<p> 设置好后，将”安装启动引导器的设备“改变为”/boot”所在的设备</p>
+<p> <img src="https://img-blog.csdnimg.cn/20181130223035816.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5MTEwNTM4,size_16,color_FFFFFF,t_70" alt></p>
+<h3 id="注意：在安装之前，打开终端（快捷键Ctrl-Alt-T），输入sudo-umount-l-isodevice，将该挂载点卸载，然后再重装。"><a href="#注意：在安装之前，打开终端（快捷键Ctrl-Alt-T），输入sudo-umount-l-isodevice，将该挂载点卸载，然后再重装。" class="headerlink" title="注意：在安装之前，打开终端（快捷键Ctrl+Alt+T），输入sudo umount -l /isodevice，将该挂载点卸载，然后再重装。"></a>注意：在安装之前，打开终端（快捷键Ctrl+Alt+T），输入sudo umount -l /isodevice，将该挂载点卸载，然后再重装。</h3><p> 点击“现在安装”，选择位置“shanghai”</p>
+<p> <img src="https://img-blog.csdn.net/20170605223104179?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVjaWNoZXVuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="地理位置"></p>
+<p> 选择“键盘布局”</p>
+<p> <img src="https://img-blog.csdn.net/20170605223115930?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVjaWNoZXVuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="键盘布局"></p>
+<p> 填写“信息”用户名和密码就是你登陆电脑用的，所以要记住</p>
+<p> <img src="https://img-blog.csdnimg.cn/20181130223457755.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5MTEwNTM4,size_16,color_FFFFFF,t_70" alt></p>
+<p> 继续后开始安装</p>
+<p> <img src="https://img-blog.csdn.net/20170605223153554?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVjaWNoZXVuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="支持包安装"></p>
+<p> 安装完成后重启，进入的是windows系统，下面设置引导</p>
+<h2 id="4-利用EasyEasyBCD引导Ubuntu启动"><a href="#4-利用EasyEasyBCD引导Ubuntu启动" class="headerlink" title="4.利用EasyEasyBCD引导Ubuntu启动"></a>4.利用EasyEasyBCD引导Ubuntu启动</h2><p> 打开EasyBCD，点击添加新条目，选择Linux/BSD</p>
+<p> <img src="https://img-blog.csdnimg.cn/201811302247529.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5MTEwNTM4,size_16,color_FFFFFF,t_70" alt></p>
+<p> 这时候在启动引导项中会多了一项启动Ubuntu系统的条目，默认就是开机时不手动设置就自动选择默认系统，看自己哪个比较常用的，就选哪个吧。</p>
+<p> <img src="https://img-blog.csdn.net/20170605000447072?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVjaWNoZXVuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="重启后目录"></p>
+<p> 重启后就会看到三个选项，第三个才是安装好的Ubuntu系统</p>
+<p> <img src="https://img-blog.csdn.net/20170605150218225?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVjaWNoZXVuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="Neosmart Linux"></p>
+<p> Ubuntu开机选项选择第一个，输入密码就可以进入系统</p>
+<p> <img src="https://img-blog.csdn.net/20170605150251679?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVjaWNoZXVuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="Ubuntu启动成功"></p>
+<p> 到这恭喜你已成功安装Ubuntu系统！！！</p>
+<p> 感谢源文章的教程，部分图由于安装过程没有截图，故引用源博文的。</p>
+<h3 id="出现故障："><a href="#出现故障：" class="headerlink" title="出现故障："></a>出现故障：</h3><h3 id="安装好的Ubuntu系统突然无法启动了（左上角一直有个-闪烁）"><a href="#安装好的Ubuntu系统突然无法启动了（左上角一直有个-闪烁）" class="headerlink" title="安装好的Ubuntu系统突然无法启动了（左上角一直有个_闪烁）"></a>安装好的Ubuntu系统突然无法启动了（左上角一直有个_闪烁）</h3><p> 原因分析：是引导项出问题了，导致无法找到驱动项</p>
+<p> 解决方法：</p>
+<p> 方法一：</p>
+<p> 1.在编辑引导菜单，把原来的NeoSmart Linux删除</p>
+<p> <img src="https://img-blog.csdnimg.cn/20181206204224132.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5MTEwNTM4,size_16,color_FFFFFF,t_70" alt></p>
+<p> 2.在添加新条目，linux/BSD重新添加引导文件，注意驱动器必须是/boot分区（分区/boot是800Mb）</p>
+<p> <img src="https://img-blog.csdnimg.cn/20181206204216771.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5MTEwNTM4,size_16,color_FFFFFF,t_70" alt></p>
+<p> 方法二：在BCD备份/修复中执行重新创建/修复引导文件</p>
+<p> <img src="https://img-blog.csdnimg.cn/20181206204230746.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5MTEwNTM4,size_16,color_FFFFFF,t_70" alt></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2018/12/02/这才是程序员想弄死产品经理的真正原因！/" class="pre-post btn btn-default" title='这才是程序员想弄死产品经理的真正原因！'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            这才是程序员想弄死产品经理的真正原因！</span>
+    </a>
+    
+    
+    <a href="/2018/11/28/ROS 入门 （1）/" class="next-post btn btn-default" title='ROS 入门 （1）'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            ROS 入门 （1）</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-windows硬盘分区"><span class="toc-text">1.windows硬盘分区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-EasyBCD设置NeoGrub引导"><span class="toc-text">2.EasyBCD设置NeoGrub引导</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Ubuntu16-04安装"><span class="toc-text">3.Ubuntu16.04安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分区过程（非常非常非常重要）-选择之前分出来的空闲的空间，点击左下角“-”号，按下面的方案进行分区（当然分区方式有很多种，之前我就尝试了其他的安装教程，他们的分区方式就跟这个不一样，不过按下面的方案就可以了）"><span class="toc-text">分区过程（非常非常非常重要） 选择之前分出来的空闲的空间，点击左下角“+”号，按下面的方案进行分区（当然分区方式有很多种，之前我就尝试了其他的安装教程，他们的分区方式就跟这个不一样，不过按下面的方案就可以了）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意：在安装之前，打开终端（快捷键Ctrl-Alt-T），输入sudo-umount-l-isodevice，将该挂载点卸载，然后再重装。"><span class="toc-text">注意：在安装之前，打开终端（快捷键Ctrl+Alt+T），输入sudo umount -l /isodevice，将该挂载点卸载，然后再重装。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-利用EasyEasyBCD引导Ubuntu启动"><span class="toc-text">4.利用EasyEasyBCD引导Ubuntu启动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#出现故障："><span class="toc-text">出现故障：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装好的Ubuntu系统突然无法启动了（左上角一直有个-闪烁）"><span class="toc-text">安装好的Ubuntu系统突然无法启动了（左上角一直有个_闪烁）</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+</body>
+</html>
