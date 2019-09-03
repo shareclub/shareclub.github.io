@@ -19,7 +19,7 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-<meta name="keywords" content="CSDN迁移">
+<meta name="keywords" content="搭建网站">
 
 
 <meta name="description" content="   版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。  本文链接：https://blog.csdn.net/qq_39110538/a...">
@@ -116,8 +116,18 @@
                         </li>
                         
                         <li role="presentation" class="text-center">
-                            <a href="/categories/工具/"><i class="fa "></i>
-                                工具</a>
+                            <a href="/categories/IT资讯/"><i class="fa "></i>
+                                IT资讯</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/计算机基础/"><i class="fa "></i>
+                                计算机基础</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/程序人生/"><i class="fa "></i>
+                                程序人生</a>
                         </li>
                         
                         <li role="presentation" class="text-center">
@@ -147,7 +157,7 @@
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        
+        <a class="category-link" href="/categories/前端/">前端</a>
     </span>
     
     
@@ -155,7 +165,7 @@
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/CSDN迁移/">CSDN迁移</a>
+            <a class="tag-link" href="/tags/搭建网站/">搭建网站</a>
             
         </span>
     </span>
@@ -166,6 +176,11 @@
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
             2018/07/24</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
     </span>
     
     
@@ -255,27 +270,7 @@
 
 <div id="comments">
     
-
-<div id="vcomments" class="valine"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="/assets/valine.min.js"></script>
-<script>
-new Valine({
-    av: AV,
-    el: '#vcomments',
-    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
-    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
-    placeholder: '说点什么吧',
-    notify: false,
-    verify: true,
-    avatar: 'mm',
-    meta: 'nick,mail'.split(','),
-    pageSize: '10',
-    path: window.location.pathname,
-    lang: 'zh-CN'.toLowerCase()
-})
-</script>
-
+<p>评论系统未开启，无法评论！</p>
 
 </div>
 
@@ -310,6 +305,16 @@ new Valine({
             <div class="col-sm-12">
                 <div class="busuanzi">
     
+    访问量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    访客数:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
 </div>
             </div>
             <div class="col-sm-12">
@@ -328,6 +333,30 @@ new Valine({
 </div>
 
 
+<script src="/assets/tagcanvas.min.js?rev=2.9"></script>
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: false || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 <script src="/js/app.js?rev=@@hash"></script>
 </body>
